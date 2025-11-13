@@ -57,9 +57,10 @@
       </div>
 
       <!-- 🔴 Mensaje de error general (correo/contraseña incorrectos) -->
-      <div class="form-error-global" *ngIf="loginError">
-        {{ loginError }}
+      <div class="error-text" *ngIf="errorMsg">
+        {{ errorMsg }}
       </div>
+      
 
       <button type="submit" class="btn-login">
         Iniciar sesión

@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../../../core/services/auth.service';
 
 @Component({
@@ -13,42 +14,49 @@ import { AuthService } from '../../../../core/services/auth.service';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  loginForm: FormGroup;
-  loginError: string | null = null;
+  // declaramos la propiedad sin inicializar
+  loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
-    // Definimos el formulario y sus validaciones básicas
+  errorMsg = '';
+  returnUrl = '/home';
+
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    // aquí ya tenemos fb disponible y creamos el formulario
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
+
+    const url = this.route.snapshot.queryParamMap.get('returnUrl');
+    if (url) {
+      this.returnUrl = url;
+    }
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.loginForm.invalid) {
-      // Marca todos los campos como "tocados" para mostrar errores
       this.loginForm.markAllAsTouched();
       return;
     }
 
-    const { email, password } = this.loginForm.value as {
-      email: string;
-      password: string;
-    };
+    const { email, password } = this.loginForm.value;
 
-    const success = this.authService.login(email, password);
+    const ok = this.authService.login(email!, password!);
 
-    if (!success) {
-      this.loginError = 'Correo o contraseña incorrectos.';
-      return;
+    if (ok) {
+      this.errorMsg = '';
+      alert('Inicio de sesión exitoso');
+      this.router.navigate([this.returnUrl]);
+    } else {
+      this.errorMsg = 'Credenciales incorrectas';
     }
-
-    this.loginError = null;
-    console.log('✅ Login correcto (simulado)');
-    alert('Inicio de sesión exitoso (simulado)');
-    // Más adelante: this.router.navigate(['/home']);
   }
 }

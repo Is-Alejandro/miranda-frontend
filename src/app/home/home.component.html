@@ -1,0 +1,52 @@
+<div class="home-page">
+    <header class="home-header">
+      <div class="logo">
+        Transporte <span>Miranda</span>
+      </div>
+  
+      <nav class="home-nav">
+        <a class="nav-item active">Inicio</a>
+        <a class="nav-item">Viajes</a>
+        <a class="nav-item">Reservas</a>
+        <a class="nav-item">Encomiendas</a>
+      </nav>
+  
+      <div class="user-area">
+        <span class="user-name">Hola, {{ nombreUsuario }}</span>
+        <button class="btn-logout" (click)="onLogout()">Cerrar sesión</button>
+      </div>
+    </header>
+  
+    <main class="home-main">
+      <section class="home-hero">
+        <h1>Bienvenido al panel de Transporte Miranda</h1>
+        <p>
+          Desde aquí podrás gestionar viajes, reservas y encomiendas.
+          Más adelante conectaremos esta vista con el backend en Spring Boot.
+        </p>
+  
+        <div class="home-actions">
+          <button class="btn-primary">Gestionar viajes</button>
+          <button class="btn-outline">Ver reservas</button>
+        </div>
+      </section>
+  
+      <section class="home-grid">
+        <article class="home-card">
+          <h2>Próximos viajes</h2>
+          <p>Listado de próximos viajes programados (a futuro vendrá de la API).</p>
+        </article>
+  
+        <article class="home-card">
+          <h2>Reservas recientes</h2>
+          <p>Resumen de las últimas reservas realizadas por los clientes.</p>
+        </article>
+  
+        <article class="home-card">
+          <h2>Encomiendas</h2>
+          <p>Control y seguimiento de encomiendas entre Lima y Chimbote.</p>
+        </article>
+      </section>
+    </main>
+  </div>
+  
