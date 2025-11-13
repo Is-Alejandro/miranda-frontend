@@ -23,9 +23,19 @@ export const routes: Routes = [
     path: 'viajes',
     canActivate: [authGuard],
     loadComponent: () =>
-      import('./features/viajes/pages/lista-viajes/lista-viajes.component').then(
-        (m) => m.ListaViajesComponent
-      ),
+      import(
+        './features/viajes/pages/lista-viajes/lista-viajes.component'
+      ).then((m) => m.ListaViajesComponent),
+  },
+
+  // ✅ NUEVA RUTA: selección de asientos
+  {
+    path: 'viajes/:id/asientos',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import(
+        './features/viajes/pages/asientos-viaje/asientos-viaje.component'
+      ).then((m) => m.AsientosViajeComponent),
   },
 
   { path: '**', redirectTo: 'login' },

@@ -1,0 +1,109 @@
+.asientos-page {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem 1.5rem 3rem;
+  }
+  
+  .asientos-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .btn-volver {
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    padding: 0.4rem 1rem;
+    background: white;
+    cursor: pointer;
+  }
+  
+  .resumen-viaje {
+    margin-top: 0.3rem;
+    color: #555;
+  }
+  
+  .bus-section {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+  
+  .bus-legend {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  
+  .bus-layout {
+    border: 1px dashed #ddd;
+    border-radius: 12px;
+    padding: 1rem;
+  }
+  
+  .pasillo-label {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #777;
+    margin: 0.3rem 0;
+  }
+  
+  .seats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); // 2 y 2 con pasillo imaginario
+    gap: 0.6rem 1rem;
+    justify-items: center;
+    margin: 0.5rem 0 0.8rem;
+  }
+  
+  .seat {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #f7f7f7;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  .seat-ocupado {
+    background: #ddd;
+    border-color: #bbb;
+    cursor: not-allowed;
+  }
+  
+  .seat-seleccionado {
+    background: #00a8ff;
+    color: #fff;
+    border-color: #0084c9;
+  }
+  
+  .acciones {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .btn-continuar {
+    padding: 0.8rem 2.5rem;
+    border-radius: 999px;
+    border: none;
+    background: #00a8ff;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .btn-continuar:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  

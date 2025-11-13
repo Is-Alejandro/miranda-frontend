@@ -1,73 +1,66 @@
 <div class="viajes-page">
     <header class="viajes-header">
-      <div>
-        <h1>Viajes disponibles</h1>
-        <p>
-          Resultados para:
-          <strong>{{ filtros.origen }}</strong>
-          →
-          <strong>{{ filtros.destino }}</strong>
-          el
-          <strong>{{ filtros.fecha || 'fecha seleccionada' }}</strong>
-          para
-          <strong>{{ filtros.pasajeros }}</strong>
-          pasajero(s).
-        </p>
-      </div>
-  
-      <button class="btn-back" (click)="volverAlHome()">← Volver</button>
+        <div>
+            <h1>Viajes disponibles</h1>
+            <p>
+                Resultados para:
+                <strong>{{ filtros.origen }}</strong>
+                →
+                <strong>{{ filtros.destino }}</strong>
+                el
+                <strong>{{ filtros.fecha || 'fecha seleccionada' }}</strong>
+                para
+                <strong>{{ filtros.pasajeros }}</strong>
+                pasajero(s).
+            </p>
+        </div>
+
+        <button class="btn-back" (click)="volverAlHome()">← Volver</button>
     </header>
-  
+
     <main>
-      <div *ngIf="viajesFiltrados.length === 0" class="no-results">
-        No se encontraron viajes para los criterios seleccionados.
-      </div>
-  
-      <div class="viajes-list" *ngIf="viajesFiltrados.length > 0">
-        <article
-          class="viaje-card"
-          *ngFor="let viaje of viajesFiltrados"
-        >
-          <div class="viaje-main">
-            <div class="ruta">
-              <h2>{{ viaje.origen }} → {{ viaje.destino }}</h2>
-              <p>Empresa: {{ viaje.empresa }}</p>
-            </div>
-  
-            <div class="horarios">
-              <div>
-                <span class="label">Salida</span>
-                <span class="value">{{ viaje.horaSalida }}</span>
-              </div>
-              <div>
-                <span class="label">Llegada</span>
-                <span class="value">{{ viaje.horaLlegada }}</span>
-              </div>
-              <div>
-                <span class="label">Duración</span>
-                <span class="value">{{ viaje.duracionHoras }} h</span>
-              </div>
-            </div>
-  
-            <div class="info-extra">
-              <div class="precio">
-                <span>Desde</span>
-                <strong>S/ {{ viaje.precio }}</strong>
-              </div>
-              <div class="asientos">
-                <span>Asientos disponibles</span>
-                <strong>{{ viaje.asientosDisponibles }}</strong>
-              </div>
-              <button
-                class="btn-primary"
-                (click)="elegirAsiento(viaje)"
-              >
-                Elegir asiento
-              </button>
-            </div>
-          </div>
-        </article>
-      </div>
+        <div *ngIf="viajesFiltrados.length === 0" class="no-results">
+            No se encontraron viajes para los criterios seleccionados.
+        </div>
+
+        <div class="viajes-list" *ngIf="viajesFiltrados.length > 0">
+            <article class="viaje-card" *ngFor="let viaje of viajesFiltrados">
+                <div class="viaje-main">
+                    <div class="ruta">
+                        <h2>{{ viaje.origen }} → {{ viaje.destino }}</h2>
+                        <p>Empresa: {{ viaje.empresa }}</p>
+                    </div>
+
+                    <div class="horarios">
+                        <div>
+                            <span class="label">Salida</span>
+                            <span class="value">{{ viaje.horaSalida }}</span>
+                        </div>
+                        <div>
+                            <span class="label">Llegada</span>
+                            <span class="value">{{ viaje.horaLlegada }}</span>
+                        </div>
+                        <div>
+                            <span class="label">Duración</span>
+                            <span class="value">{{ viaje.duracionHoras }} h</span>
+                        </div>
+                    </div>
+
+                    <div class="info-extra">
+                        <div class="precio">
+                            <span>Desde</span>
+                            <strong>S/ {{ viaje.precio }}</strong>
+                        </div>
+                        <div class="asientos">
+                            <span>Asientos disponibles</span>
+                            <strong>{{ viaje.asientosDisponibles }}</strong>
+                        </div>
+                        <button class="btn-elegir-asiento" (click)="irASeleccionAsientos(viaje)">
+                            Elegir asiento
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
     </main>
-  </div>
-  
+</div>

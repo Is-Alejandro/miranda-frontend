@@ -106,10 +106,13 @@ export class ListaViajesComponent {
     this.router.navigate(['/home']);
   }
 
-  elegirAsiento(viaje: Viaje): void {
-    // Más adelante navegaremos a /viajes/:id/asientos
-    alert(
-      `Elegir asiento para el viaje #${viaje.id} - ${viaje.origen} → ${viaje.destino} (${viaje.horaSalida})`
+  // ✅ NUEVO: navegar a la pantalla de asientos
+  irASeleccionAsientos(viaje: Viaje): void {
+    const queryParams = { ...this.route.snapshot.queryParams };
+
+    this.router.navigate(
+      ['/viajes', viaje.id, 'asientos'],
+      { queryParams }
     );
   }
 }

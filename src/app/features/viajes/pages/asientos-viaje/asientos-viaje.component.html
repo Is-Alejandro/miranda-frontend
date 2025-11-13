@@ -1,0 +1,61 @@
+<div class="asientos-page">
+    <header class="asientos-header">
+      <button class="btn-volver" (click)="volverALaLista()">← Volver</button>
+  
+      <div>
+        <h1>Selecciona tu asiento</h1>
+        <p class="resumen-viaje">
+          {{ origen }} → {{ destino }} |
+          Fecha: <strong>{{ fecha }}</strong> |
+          Pasajeros: <strong>{{ pasajeros }}</strong>
+        </p>
+      </div>
+    </header>
+  
+    <section class="bus-section">
+      <div class="bus-legend">
+        <span class="legend-item">
+          <span class="seat seat-disponible"></span> Disponible
+        </span>
+        <span class="legend-item">
+          <span class="seat seat-ocupado"></span> Ocupado
+        </span>
+        <span class="legend-item">
+          <span class="seat seat-seleccionado"></span> Seleccionado
+        </span>
+      </div>
+  
+      <div class="bus-layout">
+        <div class="pasillo-label">Frontal del bus</div>
+  
+        <div class="seats-grid">
+          <button
+            *ngFor="let asiento of asientos"
+            class="seat"
+            [ngClass]="{
+              'seat-ocupado': asiento.ocupado,
+              'seat-seleccionado': asiento.numero === asientoSeleccionado
+            }"
+            [disabled]="asiento.ocupado"
+            (click)="seleccionarAsiento(asiento)"
+          >
+            {{ asiento.numero }}
+          </button>
+        </div>
+  
+        <div class="pasillo-label">Parte trasera</div>
+      </div>
+    </section>
+  
+    <section class="acciones">
+      <button
+        class="btn-continuar"
+        [disabled]="!asientoSeleccionado"
+        (click)="continuar()"
+      >
+        Continuar con el asiento
+        <strong *ngIf="asientoSeleccionado">#{{ asientoSeleccionado }}</strong>
+      </button>
+    </section>
+  </div>
+  
