@@ -1,0 +1,111 @@
+.pago-page {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem 1.5rem 3rem;
+  }
+  
+  .pago-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .btn-volver {
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    padding: 0.4rem 1rem;
+    background: white;
+    cursor: pointer;
+  }
+  
+  .resumen-viaje {
+    margin-top: 0.3rem;
+    color: #555;
+  }
+  
+  .resumen-section,
+  .pago-section {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+  }
+  
+  .resumen-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+  }
+  
+  .resumen-section li {
+    margin: 0.2rem 0;
+  }
+  
+  .metodos {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .metodo {
+    border-radius: 999px;
+    padding: 0.6rem 1.4rem;
+    border: 1px solid #ccc;
+    background: #f8f8f8;
+    cursor: pointer;
+  }
+  
+  .metodo-activo {
+    background: #00a8ff;
+    color: #fff;
+    border-color: #0084c9;
+  }
+  
+  .tarjeta-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-top: 0.5rem;
+  }
+  
+  .tarjeta-form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+  }
+  
+  .tarjeta-form input {
+    margin-top: 0.2rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .fila {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .pago-info {
+    margin-top: 0.8rem;
+    font-size: 0.95rem;
+  }
+  
+  .acciones {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .btn-confirmar {
+    padding: 0.8rem 2.5rem;
+    border-radius: 999px;
+    border: none;
+    background: #00a8ff;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  

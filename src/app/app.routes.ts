@@ -23,12 +23,10 @@ export const routes: Routes = [
     path: 'viajes',
     canActivate: [authGuard],
     loadComponent: () =>
-      import(
-        './features/viajes/pages/lista-viajes/lista-viajes.component'
-      ).then((m) => m.ListaViajesComponent),
+      import('./features/viajes/pages/lista-viajes/lista-viajes.component')
+        .then((m) => m.ListaViajesComponent),
   },
 
-  // ✅ NUEVA RUTA: selección de asientos
   {
     path: 'viajes/:id/asientos',
     canActivate: [authGuard],
@@ -38,5 +36,34 @@ export const routes: Routes = [
       ).then((m) => m.AsientosViajeComponent),
   },
 
+  {
+    path: 'viajes/:id/pasajero',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import(
+        './features/viajes/pages/datos-pasajero/datos-pasajero.component'
+      ).then((m) => m.DatosPasajeroComponent),
+  },
+
+  {
+    path: 'pago',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/viajes/pages/pago/pago.component').then(
+        (m) => m.PagoComponent
+      ),
+  },
+
+  // 👇 ESTA RUTA DEBE IR ANTES DEL WILDCARD ❗
+  {
+    path: 'boleto',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/viajes/pages/boleto/boleto.component').then(
+        (m) => m.BoletoComponent
+      ),
+  },
+
+  // 👇 WILDCARD SIEMPRE ÚLTIMO
   { path: '**', redirectTo: 'login' },
 ];

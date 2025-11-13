@@ -62,27 +62,20 @@ export class AsientosViajeComponent implements OnInit {
 
   continuar(): void {
     if (!this.asientoSeleccionado) return;
-
-    // Aquí luego navegaremos a la pantalla de datos de pasajero / pago.
-    // De momento solo mostramos un mensaje para confirmar el flujo.
-    alert(
-      `Viaje ${this.viajeId}\n` +
-      `Ruta: ${this.origen} → ${this.destino}\n` +
-      `Fecha: ${this.fecha}\n` +
-      `Asiento seleccionado: ${this.asientoSeleccionado}`
+  
+    this.router.navigate(
+      ['/viajes', this.viajeId, 'pasajero'],
+      {
+        queryParams: {
+          origen: this.origen,
+          destino: this.destino,
+          fecha: this.fecha,
+          pasajeros: this.pasajeros,
+          asiento: this.asientoSeleccionado,
+        },
+      }
     );
-
-    // Ejemplo de navegación futura:
-    // this.router.navigate(['/viajes', this.viajeId, 'pasajero'], {
-    //   queryParams: {
-    //     origen: this.origen,
-    //     destino: this.destino,
-    //     fecha: this.fecha,
-    //     pasajeros: this.pasajeros,
-    //     asiento: this.asientoSeleccionado,
-    //   },
-    // });
-  }
+  }  
 
   volverALaLista(): void {
     // Volver a la lista de viajes manteniendo filtros

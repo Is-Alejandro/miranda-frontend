@@ -1,0 +1,77 @@
+<div class="pasajero-page">
+
+    <header class="pasajero-header">
+      <button class="btn-volver" (click)="volver()">← Volver</button>
+  
+      <div>
+        <h1>Datos del pasajero</h1>
+        <p class="resumen-viaje">
+          {{ origen }} → {{ destino }} |
+          Fecha: <strong>{{ fecha }}</strong> |
+          Asiento: <strong>#{{ asiento }}</strong>
+        </p>
+      </div>
+    </header>
+  
+    <section class="form-card">
+      <form #form="ngForm" (ngSubmit)="continuar()" class="formulario">
+  
+        <label>
+          Nombre completo
+          <input
+            type="text"
+            name="nombre"
+            [(ngModel)]="formData.nombre"
+            required
+            placeholder="Ejemplo: Juan Pérez"
+          />
+        </label>
+  
+        <label>
+          DNI
+          <input
+            type="text"
+            name="dni"
+            [(ngModel)]="formData.dni"
+            required
+            maxlength="8"
+            placeholder="00000000"
+          />
+        </label>
+  
+        <label>
+          Teléfono
+          <input
+            type="tel"
+            name="telefono"
+            [(ngModel)]="formData.telefono"
+            required
+            placeholder="9XXXXXXXX"
+          />
+        </label>
+  
+        <label>
+          Correo electrónico
+          <input
+            type="email"
+            name="correo"
+            [(ngModel)]="formData.correo"
+            required
+            placeholder="correo@ejemplo.com"
+          />
+        </label>
+  
+        <div class="acciones">
+          <button
+            type="submit"
+            class="btn-continuar"
+            [disabled]="form.invalid"
+          >
+            Continuar al pago
+          </button>
+        </div>
+  
+      </form>
+    </section>
+  </div>
+  

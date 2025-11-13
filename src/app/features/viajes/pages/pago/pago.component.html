@@ -1,0 +1,126 @@
+<div class="pago-page">
+
+    <header class="pago-header">
+      <button class="btn-volver" (click)="volver()">← Volver</button>
+  
+      <div>
+        <h1>Confirmar pago</h1>
+        <p class="resumen-viaje">
+          {{ origen }} → {{ destino }} |
+          Fecha: <strong>{{ fecha }}</strong> |
+          Pasajero: <strong>{{ nombre }}</strong> |
+          Asiento: <strong>#{{ asiento }}</strong>
+        </p>
+      </div>
+    </header>
+  
+    <section class="resumen-section">
+      <h2>Resumen de la reserva</h2>
+      <ul>
+        <li><strong>Pasajero:</strong> {{ nombre }} (DNI: {{ dni }})</li>
+        <li><strong>Teléfono:</strong> {{ telefono }}</li>
+        <li><strong>Correo:</strong> {{ correo }}</li>
+        <li><strong>Origen:</strong> {{ origen }}</li>
+        <li><strong>Destino:</strong> {{ destino }}</li>
+        <li><strong>Fecha:</strong> {{ fecha }}</li>
+        <li><strong>Asiento:</strong> #{{ asiento }}</li>
+        <li><strong>Cantidad de pasajeros:</strong> {{ pasajeros }}</li>
+      </ul>
+    </section>
+  
+    <section class="pago-section">
+      <h2>Método de pago</h2>
+  
+      <div class="metodos">
+        <button
+          type="button"
+          class="metodo"
+          [class.metodo-activo]="metodoPago === 'tarjeta'"
+          (click)="seleccionarMetodo('tarjeta')"
+        >
+          💳 Tarjeta
+        </button>
+  
+        <button
+          type="button"
+          class="metodo"
+          [class.metodo-activo]="metodoPago === 'yape'"
+          (click)="seleccionarMetodo('yape')"
+        >
+          📱 Yape
+        </button>
+  
+        <button
+          type="button"
+          class="metodo"
+          [class.metodo-activo]="metodoPago === 'plin'"
+          (click)="seleccionarMetodo('plin')"
+        >
+          📲 Plin
+        </button>
+      </div>
+  
+      <!-- Datos de tarjeta -->
+      <div *ngIf="metodoPago === 'tarjeta'" class="tarjeta-form">
+        <h3>Datos de la tarjeta</h3>
+  
+        <label>
+          Número de tarjeta
+          <input
+            type="text"
+            [(ngModel)]="datosTarjeta.numero"
+            name="numeroTarjeta"
+            placeholder="0000 0000 0000 0000"
+          />
+        </label>
+  
+        <label>
+          Nombre en la tarjeta
+          <input
+            type="text"
+            [(ngModel)]="datosTarjeta.nombre"
+            name="nombreTarjeta"
+            placeholder="Como aparece en la tarjeta"
+          />
+        </label>
+  
+        <div class="fila">
+          <label>
+            Vencimiento
+            <input
+              type="text"
+              [(ngModel)]="datosTarjeta.vencimiento"
+              name="vencimientoTarjeta"
+              placeholder="MM/AA"
+            />
+          </label>
+  
+          <label>
+            CVV
+            <input
+              type="password"
+              [(ngModel)]="datosTarjeta.cvv"
+              name="cvvTarjeta"
+              maxlength="4"
+            />
+          </label>
+        </div>
+      </div>
+  
+      <!-- Info Yape/Plin -->
+      <div *ngIf="metodoPago === 'yape'" class="pago-info">
+        <p>Escanea el QR o usa el número <strong>999 999 999</strong> para pagar con Yape.</p>
+      </div>
+  
+      <div *ngIf="metodoPago === 'plin'" class="pago-info">
+        <p>Usa el número <strong>988 888 888</strong> para pagar con Plin.</p>
+      </div>
+    </section>
+  
+    <section class="acciones">
+      <button class="btn-confirmar" (click)="confirmarPago()">
+        Confirmar pago
+      </button>
+    </section>
+  </div>
+  

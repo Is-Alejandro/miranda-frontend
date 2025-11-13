@@ -1,0 +1,43 @@
+<div class="boleto-page">
+    <header class="boleto-header">
+      <h1>Boleto virtual</h1>
+      <p class="subtitulo">
+        Gracias por tu compra, {{ nombre }}. Presenta este boleto al abordar el bus.
+      </p>
+    </header>
+  
+    <section class="boleto-card">
+      <div class="boleto-info">
+        <h2>{{ origen }} → {{ destino }}</h2>
+        <p><strong>Fecha:</strong> {{ fecha }}</p>
+        <p><strong>Pasajero:</strong> {{ nombre }} (DNI: {{ dni }})</p>
+        <p><strong>Teléfono:</strong> {{ telefono }}</p>
+        <p><strong>Correo:</strong> {{ correo }}</p>
+        <p><strong>Asiento:</strong> #{{ asiento }}</p>
+        <p><strong>Cantidad de pasajeros:</strong> {{ pasajeros }}</p>
+        <p><strong>Método de pago:</strong> {{ metodoPago | uppercase }}</p>
+        <p class="codigo"><strong>Código de reserva:</strong> {{ codigoReserva }}</p>
+      </div>
+  
+      <div class="boleto-qr">
+        <!-- 👇 Este cuadrito es el QR simulado -->
+        <div class="qr-simulado">
+          <span>QR</span>
+        </div>
+        <p class="texto-qr">
+          Escanea este código al subir al bus para validar tu boleto.
+        </p>
+  
+        <button class="btn-enviar" (click)="enviarCorreo()">
+          Enviar al correo
+        </button>
+      </div>
+    </section>
+  
+    <section class="acciones-final">
+      <button class="btn-home" (click)="irAlHome()">
+        Volver al inicio
+      </button>
+    </section>
+  </div>
+  

@@ -1,0 +1,96 @@
+.boleto-page {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem 1.5rem 3rem;
+  }
+  
+  .boleto-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .subtitulo {
+    color: #555;
+  }
+  
+  .boleto-card {
+    display: flex;
+    gap: 2rem;
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.8rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    flex-wrap: wrap;
+  }
+  
+  .boleto-info {
+    flex: 2;
+    min-width: 250px;
+  }
+  
+  .boleto-info h2 {
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+  }
+  
+  .boleto-info p {
+    margin: 0.2rem 0;
+  }
+  
+  .codigo {
+    margin-top: 0.8rem;
+  }
+  
+  .boleto-qr {
+    flex: 1;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  .qr-simulado {
+    width: 180px;
+    height: 180px;
+    background: #000;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.4rem;
+  }
+  
+  .texto-qr {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #555;
+  }
+  
+  .btn-enviar {
+    padding: 0.5rem 1.5rem;
+    border-radius: 999px;
+    border: none;
+    background: #00a8ff;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.95rem;
+  }
+  
+  .acciones-final {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .btn-home {
+    padding: 0.7rem 2.4rem;
+    border-radius: 999px;
+    border: none;
+    background: #00a8ff;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
