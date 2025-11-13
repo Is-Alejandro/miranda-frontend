@@ -13,10 +13,10 @@ export class AuthService {
 
   // Usuario simulado (más adelante vendrá del backend Spring Boot)
   private readonly MOCK_USER = {
-    email: 'admin@miranda.com',
+    email: 'cliente@miranda.com',
     password: '123456',
-    nombre: 'Administrador Miranda',
-  };
+    nombre: 'Cliente Miranda',
+  };  
 
   login(email: string, password: string): boolean {
     const isValid =

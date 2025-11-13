@@ -19,5 +19,14 @@ export const routes: Routes = [
       import('./home/home.component').then((m) => m.HomeComponent),
   },
 
+  {
+    path: 'viajes',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/viajes/pages/lista-viajes/lista-viajes.component').then(
+        (m) => m.ListaViajesComponent
+      ),
+  },
+
   { path: '**', redirectTo: 'login' },
 ];

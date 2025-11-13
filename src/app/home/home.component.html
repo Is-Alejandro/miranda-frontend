@@ -6,8 +6,8 @@
   
       <nav class="home-nav">
         <a class="nav-item active">Inicio</a>
-        <a class="nav-item">Viajes</a>
-        <a class="nav-item">Reservas</a>
+        <a class="nav-item">Buscar viaje</a>
+        <a class="nav-item">Mis reservas</a>
         <a class="nav-item">Encomiendas</a>
       </nav>
   
@@ -19,32 +19,76 @@
   
     <main class="home-main">
       <section class="home-hero">
-        <h1>Bienvenido al panel de Transporte Miranda</h1>
+        <h1>Bienvenido a Transporte Miranda</h1>
         <p>
-          Desde aquí podrás gestionar viajes, reservas y encomiendas.
-          Más adelante conectaremos esta vista con el backend en Spring Boot.
+          Aquí podrás buscar tus viajes, elegir tu asiento y reservar tus pasajes
+          de forma rápida y segura. Muy pronto conectaremos esta vista con el backend en Spring Boot.
         </p>
   
-        <div class="home-actions">
-          <button class="btn-primary">Gestionar viajes</button>
-          <button class="btn-outline">Ver reservas</button>
-        </div>
+        <!-- 🔎 Buscador de viajes -->
+        <form class="search-form" [formGroup]="searchForm" (ngSubmit)="onSearch()">
+          <div class="search-row">
+            <div class="field">
+              <label for="origen">Origen</label>
+              <select id="origen" formControlName="origen">
+                <option *ngFor="let t of terminales" [value]="t">
+                  {{ t }}
+                </option>
+              </select>
+            </div>
+  
+            <div class="field">
+              <label for="destino">Destino</label>
+              <select id="destino" formControlName="destino">
+                <option *ngFor="let t of terminales" [value]="t">
+                  {{ t }}
+                </option>
+              </select>
+            </div>
+  
+            <div class="field">
+              <label for="fecha">Fecha de viaje</label>
+              <input id="fecha" type="date" formControlName="fecha" />
+            </div>
+  
+            <div class="field">
+              <label for="pasajeros">Pasajeros</label>
+              <input
+                id="pasajeros"
+                type="number"
+                min="1"
+                max="10"
+                formControlName="pasajeros"
+              />
+            </div>
+          </div>
+  
+          <div class="search-actions">
+            <button
+              class="btn-primary search-button"
+              type="submit"
+              [disabled]="searchForm.invalid"
+            >
+              Buscar viajes
+            </button>
+          </div>
+        </form>
       </section>
   
       <section class="home-grid">
         <article class="home-card">
-          <h2>Próximos viajes</h2>
-          <p>Listado de próximos viajes programados (a futuro vendrá de la API).</p>
+          <h2>Buscar viajes</h2>
+          <p>Encuentra rutas disponibles entre Lima y Chimbote según fecha y horario.</p>
         </article>
   
         <article class="home-card">
-          <h2>Reservas recientes</h2>
-          <p>Resumen de las últimas reservas realizadas por los clientes.</p>
+          <h2>Mis reservas</h2>
+          <p>Consulta el estado de tus boletos, pagos y asientos seleccionados.</p>
         </article>
   
         <article class="home-card">
           <h2>Encomiendas</h2>
-          <p>Control y seguimiento de encomiendas entre Lima y Chimbote.</p>
+          <p>Revisa el estado y seguimiento de tus envíos entre Lima y Chimbote.</p>
         </article>
       </section>
     </main>

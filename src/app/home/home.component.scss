@@ -146,4 +146,54 @@
       color: #4b5563;
     }
   }
+  .search-form {
+    margin-top: 1.5rem;
+    background: #f9fafb;
+    padding: 1.25rem 1.5rem;
+    border-radius: 0.85rem;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .search-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  
+    label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #374151;
+    }
+  
+    select,
+    input {
+      border-radius: 0.6rem;
+      border: 1px solid #d1d5db;
+      padding: 0.45rem 0.75rem;
+      font-size: 0.9rem;
+      outline: none;
+    }
+  
+    select:focus,
+    input:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.4);
+    }
+  }
+  
+  .search-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .search-button {
+    min-width: 160px;
+  }
   
